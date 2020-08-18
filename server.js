@@ -10,13 +10,16 @@ const server = http.createServer((req, res) => {
     let path = './views';
     switch(req.url){
         case "/":
-            path+='/index.html';    
+            path+='/index.html';  
+            res.statusCode = 200;  
             break;
         case "/about":
             path +='/about.html';
+            res.statusCode = 200;
             break;
         default:
             path +='/404.html';
+            res.statusCode = 404;
             break;
 
     }
@@ -29,6 +32,7 @@ const server = http.createServer((req, res) => {
             res.end();
         }
         //res.write(data);
+        
         res.end(data);
     })
 
